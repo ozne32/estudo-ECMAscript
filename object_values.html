@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <div id="teste"></div>
+    <script>
+        // problema, como eu posso transformar um objeto em um array ? Object.values(objeto)
+        // transforma as chaves em números sequenciais dentro do array, mas o valor nunca é mudado
+        let objeto ={
+            nome:'enzo',
+            profissional:{
+                site:'google.com',
+                profissao:'programador'
+            },
+            hobbies: [
+                {id:1, hobby:'ver filmes'},
+                {id:2, hobby:'jogar videogame'}
+            ]
+        }
+        console.log(objeto)
+        console.log(Object.values(objeto))
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <div id="teste"></div>
+    <script>
+
+        let objeto ={
+            nome:'enzo',
+            profissional:{
+                site:'google.com',
+                profissao:'programador'
+            },
+            hobbies: [
+                {id:1, hobby:'ver filmes'},
+                {id:2, hobby:'jogar videogame'}
+            ]
+        }
+        console.log(objeto)
+        console.log(Object.values(objeto))//converte tudo para que a chave seja um número sequencial
+        console.log(Object.entries(objeto))//converte para indíces com pares chave valor
+    </script>
+</body>
+</html>

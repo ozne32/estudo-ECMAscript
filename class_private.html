@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <script>
+        //classes privadas que funcionam igual aos php, você coloca uma hashtag antes para falar que é privada
+        // e só pode ser chamada por meio de um método get, e as funções privadas tem que ser colocadas em
+        // na classe construtor 
+        class Pessoa{
+            #humor = null
+            #mensagens = [
+                'seja feliz',
+                'não estou para conversa hoje'
+            ]
+            constructor(nome){
+                this.#mudarHumor()
+                this.nome = nome
+            }
+            getHumor(){
+                return this.#humor
+            }
+            #mudarHumor(){
+                this.#humor = Math.floor(Math.random() * 2)
+            }
+            getMensagem(){
+                return this.#mensagens[this.#humor]
+            }
+            dizerOi(){
+                return `oi, ${this.nome}, tudo certo com o senhor?`
+            }
+        } 
+        let p = new Pessoa('enzo')
+        console.log(p.dizerOi())
+
+        console.log(p.getMensagem())
+    </script>
+</body>
+</html>

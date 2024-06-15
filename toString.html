@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <div id="teste"></div>
+    <script>
+        // ele transforma qualquer objeto em string
+        class Carro{
+            constructor(marca,modelo,ano_producao){
+                this.marca = marca,
+                this.modelo = modelo,
+                this.ano_producao = ano_producao
+            }
+            toString(){
+                return 'eu posso mudar como o método é retornado deste jeito'
+            }
+        }
+        let carro = new Carro('toyota','corolla',1998)
+        console.log(carro.toString())//todo objeto tem isso, pois é herdado 
+    </script>
+</body>
+</html>

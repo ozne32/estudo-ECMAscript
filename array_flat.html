@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <script>
+        let arr = [1,2,3,4,5,[6,7,8,[9,10,[11,12]]]]
+        // basicamnete este método serve para transformar um array multidimensional em um unidimensional
+        let arr2 = arr.flat(3)//dentro disso vai a produndidade na qual ele vai trabalhar, como o meu tem 3 níveis ent
+        console.log(arr2);
+
+        //flat map--> junção do flat e do map-->sintax sugar
+        let nomes=[
+            'enzo,ana',
+            'josé, maria',
+            'carlos,emmanuel'
+        ]
+        console.log(nomes)
+        let nomesMap = nomes.map(item=>{
+            return item.split(',')
+        })//perceba que aqui vai ser formar uma lista com várias listas, ou um array multidimensional se preferir
+        // ent você teria que fazer um flat para tudo ficar juntinho no lugar ainda. Pensando nisso
+        // criaram a sintaxSugar flatMap.
+        console.log(nomesMap)
+        let nomes1=[
+            'enzo,ana',
+            'josé, maria',
+            'carlos,emmanuel'
+        ]
+        let nomesFlatMap = nomes1.flatMap(item=>{
+            return item.split(',')
+        })
+        console.log(nomesFlatMap)
+    </script>
+</body>
+</html>

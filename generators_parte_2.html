@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    #teste{
+        display:block;
+    }
+</style>
+<body>
+    <script>
+        // definir um fluxo de ação que vai definir oq fazer em cada caso
+        function* conversar() {
+            //1 bloco
+            // para conseguir atribuir um valor ao próximo next você tem que colocar antes do yield uma 
+            // variável que será a variável utilizada
+            let opcao = yield 'tudo bem com você?'
+            // esse let opcao foi definido e pode ser utilizado para receber as próximas informações do site 
+            if (opcao == 'sim') {
+                yield 'Ótimo, fico feliz'
+                opcao = yield 'no que posso ajudar você?quer ouvir uma piada ?'
+                // como aqui não tem yield nenhum, ele vai executar toda a ação.
+                if (opcao == 'sim') {
+                    fetch('dados/piadas.json')
+                        .then(resposta => resposta.json())
+                        .then(piadas => {
+                            let idx = Math.floor(Math.random() * 10)
+                            idx = idx < 0 ? 0 : idx
+                            let piada = piadas[idx]
+                            console.log(piada.piada)
+                            setTimeout(() => {
+                                console.log(piada.resposta)
+                            }, 4000) //se for para retornar algo tem que ser true ou false
+                        })
+                        yield 'Digite 1 para compras, 2 para loja e 3 para falar com uma atendente'
+                } else {
+                    yield 'Digite 1 para compras, 2 para loja e 3 para falar com uma atendente'
+                }
+            } else {
+                yield 'Respire fundo e tenha paciência'
+            }
+            yield 'atendimento finalizado'
+        }
+        let conversa = conversar()
+        function avancar() {
+            let resposta = document.getElementById('resposta').value
+            // eu poderia dar um monte de console.log(conversa.next), mas é melhor eu definir uma variável para isso
+            let iteracao = conversa.next(resposta) //se não tiver parâmetro ele funciona do mesmo jeito
+            console.log(iteracao)
+            if(iteracao.done){
+                document.getElementById('teste').style.display = 'none'
+            }
+        }
+    </script>
+    <div id="teste">
+        Resposta: <input type="text" id="resposta">
+        <button type='button' onclick="avancar()">Próxima ação</button>
+    </div>
+</body>
+
+</html>

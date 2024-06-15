@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <div id="teste"></div>
+    <script>
+        // contextualização: referência e vazamento de memória
+        // basicamente é assim eu tenho um objeto que está sendo referenciado em uma lista de objetos por exemplo
+        // teoricamente qualquer alteração que eu fizer neste objeto deveria mudar o objeto que está sendo referenciado
+        // porém não funciona assim, embora se eu mudar
+        //o valor ele funcione ss deste jeito, se eu definir o objeto como nulo por exemplo. Embora eu não consiga
+        // acessar ele, por meio da referência dele eu ainda consigo, isso dá alguns problemas como a sobrecarga da memória 
+        // e também o fato de alguem conseguir acessar um objeto que foi deletado
+        // exemplo:
+        // definindo objetos:
+        let obj1 ={
+            nome:'enzo ribeiro',
+            idade:17
+        }
+        let obj2={
+            nome:'ana pedrini',
+            idade:16
+        }
+        // referenciando os objetos criados
+        const objetos = [obj1,obj2]
+        obj1 = null
+        console.log(obj1)
+        console.log(objetos)
+    </script>
+</body>
+</html>

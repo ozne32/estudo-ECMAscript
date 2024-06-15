@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <div id="teste"></div>
+    <script>
+        let obj1 ={
+            nome:'enzo ribeiro',
+            idade:17
+        }
+        let obj2={
+            nome:'ana pedrini',
+            idade:16
+        }
+        // não é uma coisa que se usa no dia a dia, mas é interessante saber sobre 
+        // ele deixa as coisas fracamente referenciada
+        const objetos = new WeakMap();
+        objetos.set(obj1, "info obj 1")
+        objetos.set(obj2, "info obj 2")
+        // não pode percorrer esse weakmap
+        console.log(objetos)
+        obj1 = null;
+        console.log(objetos)//aqui por enquanto ainda vai aparecer, porém se continuar assim o garbage colector(GB)
+        // vai deletar, e esse tempo depende do quanto de memória você tiver disponível, e quantos dados tiver.
+    </script>
+</body>
+</html>

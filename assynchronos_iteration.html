@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <div id="teste"></div>
+    <script>
+        // basicamente é associar uma função ao processo for, para executá-la como uma funçaõ 
+        // assíncrona e assim ao ínves de ir aparecendo os resultados, vem todos de uma vez só
+        let lista = [1, 2, 4, 5, 6, 7]
+        let asyncFor = async () => {
+            for (let nums in lista) {
+                await new Promise((resolve, reject) => {
+                    setTimeout(() => {
+                        console.log('processo assíncrono')
+                        resolve()//só para falar que acabou
+                    }, 2000)})
+
+                    console.log(nums)
+                }
+            }
+        asyncFor()
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <div id="teste"></div>
+    <script>
+
+        let objeto ={
+            nome:'enzo',
+            profissional:{
+                site:'google.com',
+                profissao:'programador'
+            },
+            hobbies: [
+                {id:1, hobby:'ver filmes'},
+                {id:2, hobby:'jogar videogame'}
+            ]
+            }
+        // descritores de propriedades
+        console.log(Object.getOwnPropertyDescriptors(objeto)) //mostra os descritores, que estão definidos de forma 
+        // distintas
+        // para que eu preciso deles
+
+        // descritor writable--> se falso não pode alterar
+        // essa função é assim--> o objeto que você quer mudar as propriedades, a chave do objeto e como você quer
+        // que o objeto fique
+        Object.defineProperty(objeto, 'nome',{
+            value:'enzo',
+            writable:false
+        })
+        // enumerable = se false não fica mais vísivel em estruturas de repetição 
+        for(let propriedades in objeto){
+            console.log(propriedades, objeto[propriedades])
+        }
+        Object.defineProperty(objeto, 'hobbies', {
+            enumerable:false
+        })
+        for(let propriedades in objeto){
+            console.log(propriedades, objeto[propriedades])
+        } //a partir daqui hobbies não aparece mais como um objeto numerável
+        // configurable--> quando false, propriedade não pode ser deletada
+        Object.defineProperty(objeto, 'pais', {
+            configurable: false
+        })   
+        
+    </script>
+</body>
+</html>

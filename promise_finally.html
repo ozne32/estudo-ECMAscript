@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <div id="teste"></div>
+    <script>
+        // em ambos os casos ele é executado, se for resolve ou reject
+        let p = new Promisse((resolve, reject)=>{
+            if(false){
+                reject('processo interrompido')
+            }
+            response('processo executado')
+        })
+        .then((resultado)=>console.log(resultado))
+        .catch((problema)=>console.log(problema))
+        .finally(()=>{
+            console.log('fluxo independente')
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+            let processoAssincrono = new Promise((resolve, reject)=>setTimeout(()=>resolve('sucesso garoto'), 3000))
+            // o processo de async await funciona da seguinte forma, ele primeiro executa todo e dps 
+            // vai e joga tudo de uma vez 
+            async function exibe(){
+                await processoAssincrono.then(p=>console.log(p))
+                // obs-->fetch é utilizado para fazer requisições HTTP, e é muito utilizado para 
+                // consumir APIs
+                console.log('Processo Assíncrono 1 ')
+                await fetch('https://jsonplaceholder.typicode.com/comments')
+                    .then(r=>r.json())//só esse r retorna um objeto cheio de coisas que a gnt não vai utilizar
+                    // então a gnt pega só o json dele, que é o importante msm
+                    .then(p=>console.log('Comments:',p))
+                console.log('Processo Assíncrono 2')
+                await fetch('https://jsonplaceholder.typicode.com/posts')
+                    .then(e=>e.json())
+                    .then(f=>console.log('Posts:',f))
+                console.log('Processamento assíncrono 3')
+                return 'Fim'
+            }
+            // lembrando que o p vai pegar o return da função async que está sendo executada
+            exibe().then(p=>console.log(p))
+        </script>
+    </body>
+</html>

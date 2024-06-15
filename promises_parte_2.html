@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <div id="teste"></div>
+    <script>
+        // não é necessário ter o bloco try catch(mas é bom), o importante mesmo é que uma hora tem que retornar
+        // o resolve e o reject 
+        let promessa = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                let resposta_requisicao = {}
+                // caso houvesse um erro na requisição
+                if (true) {
+                    resposta_requisicao = {
+                        codigo: 1050,
+                        msgErro: 'falha na conexão'
+                    }
+                    reject(resposta_requisicao) //eu posso retornar um reject com um erro personalizado assim
+                }
+                resposta_requisicao = {
+                    0: { id: 1, nome: 'enzo' },
+                    1: { id: 2, nome: 'gabriel' },
+                    2: { id: 3, nome: 'ana' }
+                }
+                resolve(resposta_requisicao)
+            }, 1000)
+        }).then(dados => {
+            let promessa2 = new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    let resposta_requisicao = {}
+                    // caso houvesse um erro na requisição
+                    if (true) {
+                        resposta_requisicao = {
+                            codigo: 1050,
+                            msgErro: 'falha na conexão'
+                        }
+                        reject(resposta_requisicao) //eu posso retornar um reject com um erro personalizado assim
+                    }
+                    resposta_requisicao = {
+                        0: { id: 1, nome: 'enzo' },
+                        1: { id: 2, nome: 'gabriel' },
+                        2: { id: 3, nome: 'ana' }
+                    }
+                    resolve(resposta_requisicao)
+                }, 1000)
+            })
+        }).then(dados => { //isso aqui serve para fazer coisas após o processamento dos dados, quando é o response
+            console.log(`resposta_requisicao: ${dados}`)
+            //e eu posso ir encadeando vários deles e posso colocar um return para mandar coisas para os seguintes 'then'
+        }).catch(erro => {
+            // aqui é utilizado para fazer a tratação de erros 
+            console.log('deu ruim, (catch):', erro)
+        })
+    </script>
+</body>
+
+</html>

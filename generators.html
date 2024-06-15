@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <div id="teste"></div>
+    <script>
+        // funções generators dão um objeto iterator, que é um objeto que vai ter as coisas, que podemos exe
+        // cutar o método next, ostrando o próximo conteúdo e etc, podendo executar até um ponto especifico 
+        // na prática
+        function* generator(){
+            yield 'primeira fase'// cada yield define o termino de uma fasé, ele vai executar tudo que tem
+            // antes e a linha na qual ele está, e ele retorna um objeto
+            yield 'segunda fase'
+            yield 'terceira fase'
+        }
+        let generatorInfo = generator()//retorna um objeto
+
+        console.log(generatorInfo.next())//isso aqui é só para falar que ele está indo para a próxima parte
+        console.log(generatorInfo.next())
+        console.log(generatorInfo.next())   
+    </script>
+</body>
+</html>

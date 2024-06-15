@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <div id="teste"></div>
+    <script>
+        // atua como o oposto do object.entries --> ou seja transforma um array em objetos
+        // em javacript não temos suporte a arrays associativos, então tem que ser em parzinho bonitinho 
+        // para tudo funcionar 
+        let dados = [
+            ['nome', 'enzo ribeiro'],
+            ['profissional', [
+                ['site', 'google.com'],
+                ['profissao', 'programador']
+            ]]
+        ]
+        console.log(Object.fromEntries(dados))
+    </script>
+</body>
+
+</html>

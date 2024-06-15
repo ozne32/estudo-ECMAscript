@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <div id="teste"></div>
+    <script>
+        let resultado = {}
+        // promisse é uma classe que recebe no seu construtor uma função com dois parâmetros
+        // sendo eles, um resolve e um reject. dentro da função podemos ter um bloco try catch
+        // para caso nossa promisse seja resolvida ou para caso nossa promisse não tenha sido executada 
+        let promessa = new Promise((resolve, reject) => { //um valor que pode estar disponível agora, no futuro 
+            //ou nunca
+            // normalmente utilizados em requisições http --> chamando API 
+            try {
+                // vai ficar falando aqui que está pendente e etc e tal
+                setTimeout(()=>{
+                    resultado = {dados: {msg: 'recuperamos os dados yee'}}
+                    resolve('Sucesso!')
+                }, 1000)
+            } catch (e) {
+                setTimeout((e)=>{
+                    reject(e)
+                })
+            }
+        })
+        console.log(promessa)
+        setTimeout(()=>{
+            console.log(promessa)
+            console.log(resultado)
+        }, 2000)
+        console.log(resultado)//aqui vai aparecer que ele está vazio, pq não executou a inserção de dados na 
+        // promisse ainda 
+    </script>
+</body>
+
+</html>
