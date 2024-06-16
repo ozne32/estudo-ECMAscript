@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <script>
+        // bloco dentro de uma classe que acontece antes do constructor de uma classe, e pode modificar variáveis 
+        // estáticos
+        class Agenda{
+            usuario_agenda = 'enzo'
+            static #datas_lembrar = []
+            constructor(titulo, qtd_folhas){
+                this.titulo = titulo
+                this.qtd_folhas = qtd_folhas
+            }
+            static {
+                this.datas_lembrar_set = 'coisa1'
+                this.datas_lembrar_set = 'cois3234'
+            }
+            static set datas_lembrar_set(data){
+                this.#datas_lembrar.push(data)
+            }
+            static get datas_lembrar_get(){
+                return this.#datas_lembrar
+            }
+        }
+        let agenda1 = new Agenda('minha Agenda',123)
+        console.log(agenda1)
+    </script>
+</body>
+</html>
