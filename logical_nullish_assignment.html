@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <script>
+        //coloca um valor numa variável caso ela for nula ??=,undefind também serve
+        // também funciona com objetos(se você chamar um objeto ou um atributo que não existe) 
+
+        let v1 = 10
+        let v2 = null
+        let v3 = undefined
+        v1??='este tem valor, portanto continua sendo 10'
+        v2??='este era nulo e agr tem este valor'
+        v3??='este era undefined e agr tem este valor'
+        let arr= ['enzo','ana', null, undefined, 'filipe']
+        arr.forEach((item, indice)=>{
+            arr[indice]??='<não encontrado>'
+        })
+        console.log(arr)
+    </script>
+</body>
+</html>
