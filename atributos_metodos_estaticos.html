@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <script>
+        //que nem o php, agr no javascript também tem agr funções e métodos estáticos
+        /*conseguir usar métodos sem instanciar objetos*/
+        class Usuario{
+            static nome = 'enzo '
+            static #senha = 123 //eu posso referenciar em funções estátias, porém eu não posso mandar ela solta
+            constructor(titulo){
+                this.titulo = titulo
+                this.senha = Usuario.nome
+            }
+            static mostrarDados(){
+                return `o nome dele é ${this.nome} e sua senha é ${this.#senha}` 
+            }
+        }
+        console.log(Usuario.mostrarDados())
+        console.log(Usuario.nome)
+    </script>
+</body>
+</html>
