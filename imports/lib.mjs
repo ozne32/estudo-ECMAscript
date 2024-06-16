@@ -18,7 +18,7 @@ export async function aguardarPromessa(){
 }
 // agr dá para fazer de uma mamenria bem mais enxuta, semprecisar colocando uma função assincrona 
 // aí dps outra função para aí ter  a promisse, e então esperar ela para conseguir retornar os dados
-export async function novoJeito(){
+export function novoJeito(){
     return new Promise(resolve=>{
         setTimeout(()=>{
             resolve('foi')
