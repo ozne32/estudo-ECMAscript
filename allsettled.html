@@ -2,7 +2,25 @@
 <html lang="en">
 <body>
     <script>
-        
+        // método que vê se uma sequencia de promessas já foi executado
+        // isso pode ser utilizado, por exemplo quando você tem a realização de 
+        // várias requisições de APIs e precisa esperar elas todas serem resolvidas, para aí 
+        // tomar alguma decisão 
+        const promise1 = new Promise((resolve,reject)=>{
+            return setTimeout(()=>resolve('promessa1 resolvida'), 2000)
+        })
+        const promise2 = new Promise((resolve,reject)=>{
+            return setTimeout(()=>reject('promessa2 rejeitada'), 3000)
+        })
+        const promise3 = new Promise((resolve,reject)=>{
+            return setTimeout(()=>resolve('promessa3 resolvida'), 4000)
+        })
+        //array de promises
+        let promises = [promise1, promise2, promise3]
+        Promise.allSettled(promises)
+            .then((resultado)=>{
+                console.log(resultado)
+            })
     </script>
 </body>
 </html>
