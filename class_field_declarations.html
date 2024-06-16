@@ -15,6 +15,17 @@
         }
         const func = new Funcionario
         console.log(func.nome)
+        // nessa nova implementação dá para colocar essas variáveis como privadas colcando um # nela
+        //agr funciona como uma variável privado, sem ser uma convenção
+        class Usuario{
+            username ='alibabapenguim'
+            #senha = 123
+            getSenha(){
+                return this.#senha
+            }
+        }
+        const user = new Usuario
+        console.log(user.getSenha())
     </script>
 </body>
 </html>
