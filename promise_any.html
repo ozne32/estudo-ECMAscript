@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <script>
+        // um método que tem em promisses que faz com que, ele receba a primeira promisse que estiver
+        // RESOLVIDA, para tratar.Exemplo 
+        const p1 = new Promise((resolve, reject)=>{
+            setTimeout(()=>resolve('p1 foi resolvida'), 2000)
+        })
+        const p2 = new Promise((resolve, reject)=>{
+            setTimeout(()=>resolve('p2 foi resolvida'), 3000)
+        })
+        const p3 = new Promise((resolve, reject)=>{
+            setTimeout(()=>resolve('p3 foi resolvida'), 4000)
+        })
+        let promises = [p1,p2,p3]
+        Promise.any(promises)
+            .then(p=>{
+                console.log(p)
+            })
+    </script>
+</body>
+</html>
