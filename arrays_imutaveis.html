@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <script>
+        // o ES13 trouxe alguns novos métodos que podem ser utiliados, toReversed()->traz o inverso daquele array,
+        // toSorted()-> traz o array organizado, toSpliced(x,y)->fatia o array de x a y posição,
+        // with(x,y), pega o valor x e substitui pelo y
+        // o grande diferencial desses é que ele não modifica o array original, logo eles tem que ser 
+        // atribuidos à variáveis para armazenalos, para poderem ser usados posteriormente
+        // exemplo:
+        const numeros = [2,6,7,8,9,3,5]
+        const arrayInvertido = numeros.toReversed()
+        console.log('array invertido: ',arrayInvertido,' array normal: ', numeros)
+        const arrayOrganizado = numeros.toSorted()
+        console.log('array organizado: ',arrayOrganizado,' array normal: ', numeros)
+        const arrayCortado = numeros.toSpliced(1,5)
+        console.log('array cortado do índice 1 ao 5: ',arrayCortado,' array normal: ', numeros)
+        const arraySubstituido = numeros.with(2,3)
+        console.log('array substituindo o índice 2 com o valor 3: ',arraySubstituido,' array normal: ', numeros)
+    </script>
+</body>
+</html>
